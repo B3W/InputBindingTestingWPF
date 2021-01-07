@@ -1,0 +1,39 @@
+﻿<Window x:Class="InputBindingTesting.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:behaviors="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:local="clr-namespace:InputBindingTesting"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <!-- Interaction Behaviors -->
+    <behaviors:Interaction.Triggers>
+        <!-- Mouse Interactions -->
+        <!-- Mouse Down -->
+        <behaviors:EventTrigger EventName="PreviewMouseLeftButtonDown">
+            <behaviors:InvokeCommandAction Command="{Binding MouseDownCommand}" PassEventArgsToCommand="True"/>
+        </behaviors:EventTrigger>
+        <!-- Mouse Up -->
+        <behaviors:EventTrigger EventName="PreviewMouseLeftButtonUp">
+            <behaviors:InvokeCommandAction Command="{Binding MouseUpCommand}" PassEventArgsToCommand="True"/>
+        </behaviors:EventTrigger>
+        <!-- Mouse Move -->
+        <behaviors:EventTrigger EventName="PreviewMouseMove">
+            <behaviors:InvokeCommandAction Command="{Binding MouseMoveCommand}" PassEventArgsToCommand="True"/>
+        </behaviors:EventTrigger>
+        <!-- Key Interactions -->
+        <!-- Action Command -->
+        <behaviors:KeyTrigger Key="{Binding ActionKey}" FiredOn="KeyUp" ActiveOnFocus="False">
+            <behaviors:InvokeCommandAction Command="{Binding ActionKeyCommand}"/>
+        </behaviors:KeyTrigger>
+        <!-- Key Down -->
+        <behaviors:EventTrigger EventName="PreviewKeyDown">
+            <behaviors:InvokeCommandAction Command="{Binding KeyDownCommand}" PassEventArgsToCommand="True"/>
+        </behaviors:EventTrigger>
+    </behaviors:Interaction.Triggers>
+    <!-- Make grid background transparent so that it can handle events -->
+    <!-- https://stackoverflow.com/a/5344709 -->
+    <Grid Background="Transparent">
+    </Grid>
+</Window>
