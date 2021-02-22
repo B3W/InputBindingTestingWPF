@@ -7,7 +7,7 @@ namespace InputBindingTesting.ViewModels
 {
     class MainWindowViewModel : BaseViewModel
     {
-        #region Properties
+        #region Fields
 
         private readonly IInputElement _owner;
 
