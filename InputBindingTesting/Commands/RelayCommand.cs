@@ -68,7 +68,7 @@ namespace InputBindingTesting.Commands
     }
 
     /// <summary>
-    /// Non-generic ICommand implementation that ensures WPF queries ready
+    /// Generic ICommand implementation that ensures WPF queries ready
     /// status of RelayCommands when they query ready status of built-in
     /// commands by using CommandManager.RequerySuggested.
     /// </summary>
